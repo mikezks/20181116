@@ -11,6 +11,5 @@ export class HomeComponent {
   title = 'Welcome';
   info = 'Flight42: Home Component';
 
-  constructor() {
-  }
+  constructor() { }
 }
