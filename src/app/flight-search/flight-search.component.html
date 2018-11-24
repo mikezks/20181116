@@ -7,16 +7,53 @@
     <form>
       <div class="form-group">
         <label>From:</label>
-        <input name="from" class="form-control">
+        <input
+          [(ngModel)]="from"
+          name="from"
+          class="form-control">
       </div>
       <div class="form-group">
         <label>To:</label>
-        <input name="to" class="form-control">
+        <input
+          [(ngModel)]="to"
+          name="to"
+          class="form-control">
       </div>
       <div class="form-group">
         <button
+          [disabled]="!from || !to"
+          (click)="search()"
           class="btn btn-default">Search</button>
       </div>
     </form>
+  </div>
+</div>
+
+<div class="card" *ngIf="flights.length > 0">
+  <table class="table table-contensed">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>From</th>
+      <th>To</th>
+      <th>Date</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tr *ngFor="let flight of flights">
+      <td>{{ flight.id }}</td>
+      <td>{{ flight.from }}</td>
+      <td>{{ flight.to }}</td>
+      <td>{{ flight.date | date:'dd.MM.yyyy HH:mm' }}</td>
+      <td>
+      <a (click)="select(flight)">Select</a> 
+      </td>
+    </tr>
+  </table>
+</div>
+
+<div class="card" *ngIf="selectedFlight">
+  <div class="content">
+    <pre>{{ selectedFlight | json }}</pre>
   </div>
 </div>

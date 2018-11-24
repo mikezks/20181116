@@ -8,8 +8,8 @@ import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
   styleUrls: ['./flight-search.component.scss']
 })
 export class FlightSearchComponent implements OnInit {
-  from: string;
-  to: string;
+  from: string = 'Graz';
+  to: string = 'Hamburg';
   flights: Flight[] = [];
   selectedFlight: Flight;
 
@@ -33,6 +33,7 @@ export class FlightSearchComponent implements OnInit {
       .subscribe(
         flights => {
           this.flights = flights;
+          console.log(this.flights);
         },
         err => {
           console.error('Error loading flights', err);
