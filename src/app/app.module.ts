@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
+import { CityPipe } from './shared/pipes/city.pipe';
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { FlightSearchComponent } from './flight-search/flight-search.component';
     SidebarComponent,
     NavbarComponent,
     HomeComponent,
-    FlightSearchComponent
+    FlightSearchComponent,
+    CityPipe
   ],
   providers: [],
   bootstrap: [AppComponent]
