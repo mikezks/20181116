@@ -5,12 +5,15 @@ import {
   HttpParams
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { tap } from 'rxjs/operators';
 import { Flight } from '../../entities/flight';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FlightService {
+
+  flights: Flight[] = [];
 
   constructor(private http: HttpClient) { }
 
@@ -25,6 +28,9 @@ export class FlightService {
       .set('to', to);
 
     return this.http
-      .get<Flight[]>(url, { params, headers });
+      .get<Flight[]>(url, { params, headers })
+      .pipe(
+        tap((flights: Flight[]) => this.flights = flights)
+      );
   }
 }

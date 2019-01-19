@@ -4,11 +4,14 @@
 
   <div class="header">
     <h2 class="title">{{item.from}} - {{item.to}}</h2>
+    <ng-content select=".title"></ng-content>
   </div>
 
   <div class="content">
     <p>Flight-No.: #{{item.id}}</p>
     <p>Date: {{item.date | date:'dd.MM.yyyy HH:mm'}}</p>
+
+    <ng-content></ng-content>
 
     <p>
       <button
@@ -19,7 +22,11 @@
         class="btn btn-default"
         *ngIf="selected"
         (click)="deselect()">Remove</button>
+      <button
+        class="btn btn-default"
+        [routerLink]="['/flight-booking/flight-edit', item.id, { showDetails: true }]">Edit</button>
     </p>
 
   </div>
 </div>
+

@@ -13,9 +13,9 @@ import { FlightBookingModule } from './flight-booking/flight-booking.module';
 @NgModule({
   imports: [
     BrowserModule,
+    FlightBookingModule,
     AppRoutingModule,
-    HttpClientModule,
-    FlightBookingModule
+    HttpClientModule
   ],
   declarations: [
     AppComponent,
